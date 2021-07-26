@@ -19,6 +19,7 @@ public class Tweet {
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         return tweet;
     }
+
     public static List<Tweet> fromJsonArry(JSONArray jsonArray) throws JSONException {
         List<Tweet> tweets = new ArrayList<>();
         for(int i = 0; i < jsonArray.length(); i++){
@@ -27,4 +28,8 @@ public class Tweet {
             return  tweets;
     }
 
+    public String getFormattedTimestamp() {
+        
+        return TimeFormatter.getTimeDifference(createdAt);
+    }
 }
